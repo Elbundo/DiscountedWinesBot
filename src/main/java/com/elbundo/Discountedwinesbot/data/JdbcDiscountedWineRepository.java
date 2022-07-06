@@ -1,5 +1,6 @@
 package com.elbundo.Discountedwinesbot.data;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -28,11 +29,6 @@ public class JdbcDiscountedWineRepository implements DiscountedWineRepository{
                 "site, name, alias, price, priceWithDiscount, discount, image " +
                 "from Discounted_Wines " +
                 "where site = ?", this::mapRowToWine, site);
-    }
-
-    @Override
-    public boolean contains(Wine wine) {
-        return findAll().contains(wine);
     }
 
     @Override

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface Handler {
     List<Wine> handle();
+    String getSite();
 }

@@ -20,6 +20,7 @@ import java.util.List;
 @Slf4j
 @Component
 public class WineStyle implements Handler{
+    private final String site = "winestyle";
     private final String DISCOUNT = "discount-circle";
     private final String LOGO = "itemprop=\"logo\"";
     private final String TITLE = "data-prodname";
@@ -100,7 +101,7 @@ public class WineStyle implements Handler{
 
                     if (wine.getPrice() < DiscountedWinesBotApplication.MIN_PRICE)
                         continue;
-                    wine.setSite("winestyle");
+                    wine.setSite(site);
                     list.add(wine);
                 }
             } catch (Exception ignored) {
@@ -110,5 +111,10 @@ public class WineStyle implements Handler{
         }
         log.info("Result: " + list);
         return list;
+    }
+
+    @Override
+    public String getSite() {
+        return site;
     }
 }
